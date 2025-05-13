@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@font-face {
+    font-weight: 100;
+    font-family: AmazonEmber;
+    src: url(./assets/Fonts/AmazonEmber_Th.ttf);
+}
+
+@font-face {
+    font-weight: 200;
+    font-family: AmazonEmber;
+    src: url(./assets/Fonts/AmazonEmber_ThIt.ttf);
+}
+@font-face {
+    font-weight: 300;
+    font-family: AmazonEmber;
+    src: url(./assets/Fonts/AmazonEmber_Lt.ttf);
+}
+@font-face {
+    font-weight: 400;
+    font-family: AmazonEmber;
+    src: url(./assets/Fonts/AmazonEmber_Rg.ttf);
+}
+
+@theme {
+    --font-amazonEmber: AmazonEmber, "sans-serif", "Ariel";
+}
+
+@layer utilities {
+  .scrollbar-hidden {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
