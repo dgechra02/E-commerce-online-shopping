@@ -23,7 +23,7 @@ export default function MainContentCarouselCards({ sampleCarouselData }) {
 
         {sampleCarouselData.map(({ img_link, product_id }) => (
           <img
-            className="h-45"
+            className="h-45 hover:cursor-pointer"
             src={img_link}
             alt="product_image"
             onClick={() => navigate(`/products/${product_id}`)}

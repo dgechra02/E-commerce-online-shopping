@@ -31,10 +31,10 @@ export default function Header({setIsSidebarOpen, isSidebarOpen}) {
 
   return (
     <div className="flex flex-col w-full fixed top-0 z-10 text-white overflow-hidden">
-      <div className="topHeader flex items-center bg-[#131921] px-3 py-1 gap-1">
-        <div className="logoSection flex px-2 py-1 border-1 rounded-xs border-transparent hover:border-white">
+      <div className="topHeader flex items-center bg-[#131921] md:px-3 py-1 md:gap-1">
+        <div className="logoSection flex px-1 md:px-2 py-1 border-1 rounded-xs border-transparent hover:border-white">
           <img
-            className="max-w-10 rounded-xs "
+            className="max-w-10 rounded-xs hover:cursor-pointer"
             src="https://marketplace.canva.com/EAGQ1aYlOWs/1/0/1600w/canva-blue-colorful-illustrative-e-commerce-online-shop-logo-bHiX_0QpJxE.jpg"
             alt="logo"
             onClick={() => navigate("home")}
@@ -49,10 +49,11 @@ export default function Header({setIsSidebarOpen, isSidebarOpen}) {
           Heading={"Kishangarh... 305801"}
           customClass={"justify-end"}
           subHeadColor={"text-[#A5A7A8]"}
+          hideInMobile={true}
         />
-        <div className="searchBar flex bg-white rounded-sm overflow-hidden focus-within:outline-3 focus-within:outline-amber-500 flex-1 h-10 min-w-[320px]">
-          <button className=" cursor-pointer bg-[#cdcdcd] hover:bg-[#b7b7b7] text-[#525252] hover:text-black fill-[#525252] hover:fill-black px-3 py-1 flex items-center gap-2 border-r-1 border-[#afafaf]">
-            <span className="">All</span>
+        <div className="searchBar flex bg-white rounded-sm overflow-hidden focus-within:outline-3 focus-within:outline-amber-500 flex-1 h-10 md:min-w-[320px]">
+          <button className="max-md:hidden cursor-pointer bg-[#cdcdcd] hover:bg-[#b7b7b7] text-[#525252] hover:text-black fill-[#525252] hover:fill-black px-3 py-1 flex items-center gap-2 border-r-1 border-[#afafaf]">
+            <span className="max-md:hidden">All</span>
             <svg
               className="w-2"
               viewBox="0 0 24 24"
@@ -76,7 +77,7 @@ export default function Header({setIsSidebarOpen, isSidebarOpen}) {
             type="search"
             placeholder="Search Bamazon.in"
           />
-          <button className="searchIconBox cursor-pointer w-10 bg-[#f4b461] hover:bg-[#F3A847] flex items-center justify-center">
+          <button className="searchIconBox cursor-pointer min-w-10 bg-[#f4b461] hover:bg-[#F3A847] flex items-center justify-center">
             <img className="w-6" src={SearchIcon} alt="search-icon" onClick={() => navigate("/products")}/>
           </button>
         </div>
@@ -88,24 +89,27 @@ export default function Header({setIsSidebarOpen, isSidebarOpen}) {
           showDropDown={true}
           DropDown={DropDown}
           customClass={"justify-center items-center"}
+          hideInMobile={true}
         />
         <SubheadHead
           Subheading={"Hello, Rajendra"}
           Heading={"Account & Lists"}
           showDropDown={true}
           DropDown={DropDown}
+          hideInMobile={true}
         />
         <SubheadHead
           Subheading={"Return"}
           Heading={"& Orders"}
+          hideInMobile={true}
         />
-        <div className="cart relative flex items-end px-2 py-1 border-1 rounded-xs border-transparent hover:border-white cursor-pointer" onClick={() => navigate("/cart")}>
+        <div className="cart relative flex items-end px-1 md:px-2 py-1 border-1 rounded-xs border-transparent hover:border-white cursor-pointer" onClick={() => navigate("/cart")}>
           <img className="w-10" src={Cart} alt="cartImage" />
-          <span className="font-bold text-[#F08804] absolute top-2 right-[49px] leading-none" >{totalItems}</span>
+          <span className="font-bold text-[#F08804] absolute top-2 right-[51px] leading-none" >{totalItems}</span>
           <span className="font-bold">Cart</span>
         </div>
       </div>
-      <div className="bottomHeader bg-[#232F3E] flex items-center px-2 gap-2">
+      <div className="bottomHeader max-md:hidden bg-[#232F3E] flex items-center px-2 gap-2">
         <div onClick={() => setIsSidebarOpen(true)} className="all flex gap-1 cursor-pointer px-2 py-2 border-1 rounded-xs border-transparent hover:border-white">
           <img className="w-5" src={Hamburger} alt="hamburgerIcon" />
           <span className="text-sm font-bold">All</span>

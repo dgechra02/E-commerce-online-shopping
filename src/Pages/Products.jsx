@@ -27,8 +27,8 @@ export default function Products() {
   // console.log("allCategories : ", allCategories);
 
   return (
-    <div className="flex relative top-28 px-3 gap-10">
-      <div className="filter flex flex-col gap-2 w-[350px]">
+    <div className="flex relative top-17 md:top-28 px-3 gap-10">
+      <div className="filter flex flex-col gap-2 w-[350px] max-md:hidden">
         {proudctsFilterData.map(({ title, data }) => (
           <ProductsFilter title={title} data={data} />
         ))}

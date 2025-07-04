@@ -12,27 +12,30 @@ export default function MainContentImageCarousel() {
     >
       <img
         onClick={() => setIndex((index - 1 + 6) % 6)}
-        className="w-10 absolute top-25 left-5 cursor-pointer z-10"
+        className="w-5 md:w-10 absolute top-15 md:top-25 left-2 md:left-5 cursor-pointer z-10 max-md:bg-white max-md:rounded-full max-md:p-0.5 max-md:border-black max-md:border"
         src={leftArrow}
         alt="right arrow image"
       />
-      <div className="flex m-auto transition-transform duration-500 ease-in-out  "
+      <div className="flex m-auto transition-transform duration-500 ease-in-out max-md:hidden"
       style={{ transform: `translateX(-${index * 100}%)` }}
       >
         {imageCarouselArray.map((img, i) => {
           return (
             <img
               key={i}
-              className=" "
+              className=""
               src={img}
               alt="carouselImage"
             />
           );
         })}
       </div>
+      <div className="md:hidden">
+        <img className="scale-200 relative top-21" src={imageCarouselArray[index]} alt="carousel images" />
+      </div>
       <img
         onClick={() => setIndex((index + 1) % 6)}
-        className="w-10 absolute top-25 right-5 cursor-pointer z-10"
+        className="w-5 md:w-10 absolute top-15 md:top-25 right-2 md:right-5 cursor-pointer z-10 max-md:bg-white max-md:rounded-full max-md:p-0.5 max-md:border-black max-md:border"
         src={rightArrow}
         alt="right arrow image"
       />

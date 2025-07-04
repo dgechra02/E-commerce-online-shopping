@@ -18,12 +18,12 @@ export default function ProductsProduct({ dataObj }) {
   } = dataObj;
   // console.log("props: ", dataObj);
   return (
-    <div className="flex shadow-[1px_1px_5px_rgba(0,0,0,0.3)] rounded overflow-hidden bg-[#ffffff80] ">
+    <div className="flex max-md:flex-col shadow-[1px_1px_5px_rgba(0,0,0,0.3)] rounded overflow-hidden bg-[#ffffff80] ">
       <div className="imageBox min-w-[250px] py-5  flex justify-center items-center">
         <img
           src={img_link}
           alt="product-img"
-          className="max-w-[200px]"
+          className="max-w-[200px] hover:cursor-pointer"
           onClick={() => navigate(`/products/${product_id}`)}
         />
       </div>

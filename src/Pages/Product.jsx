@@ -47,15 +47,18 @@ export default function Product() {
   return (
     <div
       ref={topRef}
-      className="productPage relative top-28 px-10 bg-white p-5"
+      className="productPage relative top-15 md:top-28 px-2 md:px-10 bg-white"
     >
-      <div className="flex overflow-hidden  ">
-        <div className="imageBox flex justify-center items-center size-[600px]">
+      <div className="flex max-md:flex-col overflow-hidden  relative">
+        <div className="imageBox max-md:hidden flex justify-center items-center size-[600px]">
           <img src={img_link} alt="product-img" className="w-[350px]" />
         </div>
-        <div className="productDetails flex flex-col justify-start p-2 w-[500px] gap-1">
+        <div className="productDetails flex flex-col justify-start p-2 md:w-[500px] gap-1">
           <div className="firstPart flex flex-col float-end mb-2">
-            <h4 className=" text-2xl font-[500]">{product_name}</h4>
+            <h4 className=" text-xl md:text-2xl font-[500]">{product_name}</h4>
+            <div className="imageBox md:hidden flex justify-start py-2">
+              <img src={img_link} alt="product-img" className="w-[100px]"/>
+            </div>
             <a
               href=""
               className="hover:text-[#0c3353] text-[#2162A1] hover:underline cursor-pointer"
@@ -104,7 +107,7 @@ export default function Product() {
             <span className="leading-none">Fullfilled</span>
           </span>
           <span>Inclusive of all taxes</span>
-          <span className="flex font-bold h-6 w-fit overflow-hidden gap-5">
+          <span className="max-md:hidden flex font-bold h-6 w-fit overflow-hidden gap-5">
             <img
               className="w-6 h-fit relative bottom-[24.5px]"
               src={spriteImage}
@@ -112,7 +115,7 @@ export default function Product() {
             />{" "}
             Offers
           </span>
-          <div className="offers flex gap-2 p-2 w-full overflow-auto scrollbar-hidden">
+          <div className="max-md:hidden offers flex gap-2 p-2 overflow-auto scrollbar-hidden">
             <div className="offer1 flex flex-col gap-1 min-w-[170px] h-[130px] rounded shadow-[0px_0px_4px_1px_rgba(0,0,0,0.3)] p-[10px]">
               <span className="font-semibold leading-none">Cashback</span>
               <span className="line-clamp-3 leading-5">
@@ -155,7 +158,7 @@ export default function Product() {
             </div>
           </div>
           {/* <span className="w-full  ">Category : {category.replaceAll("|", " ")}</span> */}
-          <div className="about_product flex flex-col ">
+          <div className="about_product flex flex-col max-md:hidden">
             <span className="font-semibold text-xl">About this item : </span>
             <div className="px-2">
               {parts.map((part) => {
@@ -177,7 +180,7 @@ export default function Product() {
             </div>
           </div>
         </div>
-        <div className="purchasing flex flex-col items-center gap-1 ml-10 rounded-xl overflow-hidden w-[270px] h-fit border">
+        <div className="purchasing flex flex-col items-center gap-1 md:ml-10 rounded-xl overflow-hidden md:w-[270px] h-fit border">
           <div className="header flex flex-col bg-[#eeeeee] hover:bg-[#dfdfdf] px-4 py-2 w-full">
             <div className="flex justify-between font-semibold text-sm ">
               <span>With Exchange</span>
@@ -187,7 +190,7 @@ export default function Product() {
               Up to 70% off
             </span>
           </div>
-          <div className="flex flex-col px-4 py-2 w-full">
+          <div className="flex flex-col px-4 md:py-2 w-full">
             <div className="flex justify-between font-semibold text-sm ">
               <span>Without Exchange</span>
               <input type="radio" name="pickone" id="" />
@@ -196,7 +199,7 @@ export default function Product() {
               {discounted_price}
             </span>
           </div>
-          <div className="header px-4 py-2 w-full">
+          <div className="max-md:hidden header px-4 py-2 w-full">
             <span className="bg-[#3E4650] flex w-fit text-white text-xs p-[3px] items-center rounded-l">
               <img className="w-3 mr-1 leading-none" src={AmazonAlogo} alt="" />
               <span className="leading-none">Fullfilled</span>
@@ -207,7 +210,7 @@ export default function Product() {
               Kishangarh Ajmer District 305801. Details
             </a>
           </div>
-          <div className=" header px-4 py-2 w-full ">
+          <div className="max-md:hidden header px-4 py-2 w-full ">
             <span className="font-semibold text-[#B12704]">
               Arrives after Mother's Day.{" "}
             </span>
@@ -220,7 +223,7 @@ export default function Product() {
               Card instantly.
             </span>
           </div>
-          <div className=" header px-4 py-2 w-full ">
+          <div className="max-md:hidden header px-4 py-2 w-full ">
             <span className="">Or fastest delivery</span>
             <span className="font-semibold"> Thursday, 15 May. </span>
             <span>
@@ -232,9 +235,9 @@ export default function Product() {
               </span>
             </span>
           </div>
-          <div className=" header px-4 py-2 w-full flex flex-col gap-2">
+          <div className=" header px-4 md:py-2 w-full flex flex-col gap-2">
             <span className="text-[#0B7B3C] text-xl">In stock</span>
-            <span className="grid grid-cols-[1fr_2fr] text-xs pl-2 gap-1">
+            <span className="max-md:hidden grid grid-cols-[1fr_2fr] text-xs pl-2 gap-1">
               <span className="text-[#474747] w-fit">Ships from </span>
               <span>Amazon</span>
               <span className="text-[#474747] w-fit"> Sold by</span>
