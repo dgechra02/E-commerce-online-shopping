@@ -6,7 +6,7 @@ export default function MainContentCards({ title, data = [] }) {
   const navigate = useNavigate();
   
   return (
-    <div className="bg-white w-[350px] h-[430px] shadow-lg mb-5 p-5 relative">
+    <div className="bg-white w-[340px] h-[430px] shadow-lg mb-5 p-3 relative">
       <span className="font-bold text-2xl">{title}</span>
       <div className={`products ${data.length === 4 && "grid grid-cols-2"} `}>
         {data.map(
