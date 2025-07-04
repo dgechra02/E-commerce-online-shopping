@@ -30,7 +30,7 @@ export default function ProductsProduct({ dataObj }) {
       <div className="productDetails flex flex-col justify-start p-2 bg-[#F7F7F7] flex-1">
         <h4 className=" text-xl">{product_name}</h4>
         <span className="text-xs flex ">
-          {`${rating}`}{" "}
+          {`${rating}`}
           <img
             className="h-[14px]"
             src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Star_rating_4.5_of_5.png"

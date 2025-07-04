@@ -101,7 +101,7 @@ export default function Header({setIsSidebarOpen, isSidebarOpen}) {
         />
         <div className="cart relative flex items-end px-2 py-1 border-1 rounded-xs border-transparent hover:border-white cursor-pointer" onClick={() => navigate("/cart")}>
           <img className="w-10" src={Cart} alt="cartImage" />
-          <span className="font-bold text-[#F08804] absolute top-2 right-[53px] leading-none" >{totalItems}</span>
+          <span className="font-bold text-[#F08804] absolute top-2 right-[49px] leading-none" >{totalItems}</span>
           <span className="font-bold">Cart</span>
         </div>
       </div>

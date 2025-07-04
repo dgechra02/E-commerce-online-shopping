@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import RightArrow from "../assets/RightArrow";
 
 export default function MainContentCarouselCards({ sampleCarouselData }) {
   console.log("carouselImagesData :  ", sampleCarouselData);
@@ -16,8 +17,17 @@ export default function MainContentCarouselCards({ sampleCarouselData }) {
   return (
     <>
       <div className="flex gap-4 w-full overflow-auto relative ">
+        {/* <button className="flex justify-center items-center shadow-[0px_0px_4px_1px_rgba(0,0,0,0.4)] w-10 h-20 bg-white rounded-l absolute right-0 top-13 z-10 group">
+          <RightArrow className={`group-hover:text-black text-[#a1a1a1] w-5`} />
+        </button> */}
+
         {sampleCarouselData.map(({ img_link, product_id }) => (
-          <img className="h-45" src={img_link} alt="product_image" onClick={() => navigate(`/products/${product_id}`)}/>
+          <img
+            className="h-45"
+            src={img_link}
+            alt="product_image"
+            onClick={() => navigate(`/products/${product_id}`)}
+          />
         ))}
       </div>
     </>

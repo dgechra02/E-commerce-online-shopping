@@ -12,30 +12,45 @@ export default function CartContextProvider({ children }) {
     const existingCard = cart.find(
       ({ productId }) => productId === product_id
     ) ?? { productId: product_id, quantity: 0 };
-    existingCard.quantity += 1;
-    console.log("existingCard : ", existingCard);
-    if (existingCard.quantity === 1) setCart([...cart, existingCard]);
-    if(existingCard.quantity > 1) setCart([...cart]);
+    if (existingCard.quantity == 3) {
+      alert("This seller has a limit of 3 per customer.");
+    } else {
+      existingCard.quantity += 1;
+      console.log("existingCard : ", existingCard);
+      if (existingCard.quantity === 1) setCart([...cart, existingCard]);
+      if (existingCard.quantity > 1) setCart([...cart]);
+    }
   };
 
   const removeFromCart = (product_id) => {
-    const cartToRemove = cart.find(({productId}) => productId === product_id);
+    const cartToRemove = cart.find(({ productId }) => productId === product_id);
 
-    console.log("cartToRemove : ", cartToRemove)
-    if(cartToRemove.quantity === 1) {
-        setCart(cart.filter(({productId}) => productId !== product_id))
+    console.log("cartToRemove : ", cartToRemove);
+    if (cartToRemove.quantity === 1) {
+      setCart(cart.filter(({ productId }) => productId !== product_id));
+    } else {
+      cartToRemove.quantity -= 1;
+      setCart([...cart]);
     }
-    else {
-        cartToRemove.quantity -= 1;
-        setCart([...cart]);
-    }
-
+  };
+  const deleteFromCart = (product_id) => {
+    setCart(cart.filter(({productId}) => productId !== product_id));
   }
 
   console.log("cart : ", cart);
 
   return (
-    <cartContext.Provider value={{ cart, addToCart, totalItems, removeFromCart, searchedValue, setSearchedValue }}>
+    <cartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        totalItems,
+        removeFromCart,
+        searchedValue,
+        setSearchedValue,
+        deleteFromCart
+      }}
+    >
       {children}
     </cartContext.Provider>
   );

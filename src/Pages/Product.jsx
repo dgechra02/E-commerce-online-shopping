@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { sampleData } from "./../components/Constants";
 import { useParams } from "react-router";
 import { useCart } from "../Contexts/CartContext";
@@ -33,8 +33,22 @@ export default function Product() {
   console.log("about_product : ", about_product);
   const parts = about_product.split("|");
 
+  const topRef = useRef();
+
+  const scrollToTop = () => {
+    if (topRef.current) {
+      window.scrollTo({ top: 0 });
+    }
+  };
+  // top tell the scrolling of the page from top of document, here our top start from top-28, it's out top-0
+
+  useEffect(scrollToTop, []);
+
   return (
-    <div className="productPage relative top-28 px-10 bg-white p-5">
+    <div
+      ref={topRef}
+      className="productPage relative top-28 px-10 bg-white p-5"
+    >
       <div className="flex overflow-hidden  ">
         <div className="imageBox flex justify-center items-center size-[600px]">
           <img src={img_link} alt="product-img" className="w-[350px]" />
@@ -163,11 +177,11 @@ export default function Product() {
             </div>
           </div>
         </div>
-        <div className="purchasing flex flex-col items-center gap-1 ml-10 rounded-xl overflow-hidden w-[270px] border">
+        <div className="purchasing flex flex-col items-center gap-1 ml-10 rounded-xl overflow-hidden w-[270px] h-fit border">
           <div className="header flex flex-col bg-[#eeeeee] hover:bg-[#dfdfdf] px-4 py-2 w-full">
             <div className="flex justify-between font-semibold text-sm ">
               <span>With Exchange</span>
-              <input type="radio" name="" id="" />
+              <input type="radio" name="pickone" id="" />
             </div>
             <span className="font-semibold text-sm text-[#B12704]">
               Up to 70% off
@@ -176,7 +190,7 @@ export default function Product() {
           <div className="flex flex-col px-4 py-2 w-full">
             <div className="flex justify-between font-semibold text-sm ">
               <span>Without Exchange</span>
-              <input type="radio" name="" id="" />
+              <input type="radio" name="pickone" id="" />
             </div>
             <span className="font-semibold text-sm text-[#B12704]">
               {discounted_price}

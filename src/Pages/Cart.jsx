@@ -4,7 +4,10 @@ import { sampleData } from "../components/Constants";
 import AmazonAlogo from "./../assets/amazonAlogo.svg";
 
 export default function Cart() {
-  const { cart, addToCart, removeFromCart } = useCart();
+  const { cart, addToCart, removeFromCart, deleteFromCart } = useCart();
+  function handleDelete() {
+    
+  }
 
   return (
     <div className="productList  bg-black/5 p-5 w-[97%] m-auto rounded relative top-28">
@@ -82,7 +85,9 @@ export default function Cart() {
                         </span>
                         <div className="flex items-center gap-2">
                           <span>|</span>
-                          <span className="text-xs hover:text-[#0c3353] text-[#2162A1] hover:underline cursor-pointer"> Delete </span>
+                          <span className="text-xs hover:text-[#0c3353] text-[#2162A1] hover:underline cursor-pointer"
+                          onClick={() => deleteFromCart(productId)}
+                          > Delete </span>
                           <span>|</span>
                           <span className="text-xs hover:text-[#0c3353] text-[#2162A1] hover:underline cursor-pointer"> Save for later </span>
                           <span>|</span>

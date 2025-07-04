@@ -11,7 +11,6 @@ export default function ProductsFilter({ title, data }) {
               {checkbox && <input type="checkbox" name="" id="" /> }
               <span>{label}</span>
             </span> <br />
-
           </>
         );
       })}

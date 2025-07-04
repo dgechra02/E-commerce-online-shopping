@@ -20,7 +20,6 @@ export default function PageLayout() {
       )}
       <div className="w-full">
         <Outlet />
-        
       </div>
     </div>
   );
