@@ -1,10 +1,13 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 export const cartContext = createContext(null);
 
 export default function CartContextProvider({ children }) {
+
+  const savedCart = JSON.parse(localStorage.getItem("cartArr")) || [];
+
   const [searchedValue, setSearchedValue] = useState("");
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(savedCart);
   const totalItems = cart.reduce((acc, { quantity }) => acc + quantity, 0);
   console.log();
 
@@ -20,7 +23,12 @@ export default function CartContextProvider({ children }) {
       if (existingCard.quantity === 1) setCart([...cart, existingCard]);
       if (existingCard.quantity > 1) setCart([...cart]);
     }
+    
   };
+
+  useEffect( () => {
+    localStorage.setItem("cartArr", JSON.stringify(cart));
+  }, [cart]);
 
   const removeFromCart = (product_id) => {
     const cartToRemove = cart.find(({ productId }) => productId === product_id);
@@ -37,6 +45,10 @@ export default function CartContextProvider({ children }) {
     setCart(cart.filter(({productId}) => productId !== product_id));
   }
 
+  function handleBuy() {
+    setCart([]);
+  }
+
   console.log("cart : ", cart);
 
   return (
@@ -48,7 +60,8 @@ export default function CartContextProvider({ children }) {
         removeFromCart,
         searchedValue,
         setSearchedValue,
-        deleteFromCart
+        deleteFromCart,
+        handleBuy
       }}
     >
       {children}

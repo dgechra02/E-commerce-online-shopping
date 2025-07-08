@@ -22,7 +22,7 @@ export default function MainContentCards({ title, data = [] }) {
                   onClick={() => navigate(`/products/${product_id}`)}
                   // using '/' before products, will set this url relative to base url
                   // without using it will be relative to the current url, in this case current url is /home, so it will upend after this
-                  className={`${data.length === 4 && "h-25"} hover:cursor-pointer`}
+                  className={`${ data.length === 4 && "h-25"}  hover:cursor-pointer`}
                   src={img_link}
                   alt="product_image"
                 />

@@ -259,9 +259,7 @@ export default function Product() {
             >
               Add to Cart
             </button>
-            <button className="bg-orange-400 w-full leading-none px-4 py-2 rounded-2xl cursor-pointer">
-              Buy Now
-            </button>
+            
           </div>
           <div className="flex px-4 py-2 w-full gap-2">
             <input type="checkbox" name="" id="" />{" "}

@@ -23,7 +23,7 @@ export default function MainContent() {
         <div className="fadeImage md:relative md:bottom-100 md:h-100 md:w-full md:bg-gradient-to-t from-white to-transparent "></div>
         <div className="listingProducts absolute max-md:mt-2 md:top-[250px]">
           <div className="cardSection w-[96%] flex justify-center gap-5 m-auto flex-wrap">
-            {sampleCardData.map(({ title, data }) => (
+            {sampleCardData2.map(({ title, data }) => (
               <MainContentCards title={title} data={data} />
             ))}
           </div>
@@ -44,7 +44,7 @@ export default function MainContent() {
           </div>
           {/* second portion */}
           <div className="cardSection w-[96%] flex justify-center gap-5 m-auto flex-wrap ">
-            {sampleCardData2.map(({ title, data }) => (
+            {sampleCardData.map(({ title, data }) => (
               <MainContentCards title={title} data={data} />
             ))}
           </div>

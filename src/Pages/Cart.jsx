@@ -2,9 +2,24 @@ import React, { use, useEffect, useRef, useState } from "react";
 import { useCart } from "../Contexts/CartContext";
 import { sampleData } from "../components/Constants";
 import AmazonAlogo from "./../assets/amazonAlogo.svg";
+import greenTick from "../assets/greenTick.svg";
+import { useNavigate } from "react-router";
 
 export default function Cart() {
-  const { cart, addToCart, removeFromCart, deleteFromCart } = useCart();
+  const { cart, addToCart, removeFromCart, deleteFromCart, handleBuy } =
+    useCart();
+
+  const [orderPlacedIsOpen, setOrderPlacedIsOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  function handleOrderPlaced() {
+    handleBuy();
+    setOrderPlacedIsOpen(true);
+    setTimeout(() => {
+      setOrderPlacedIsOpen(false);
+    }, 2500);
+  }
 
   const topRef = useRef();
 
@@ -149,6 +164,37 @@ export default function Cart() {
       ) : (
         <span>Your cart is empty</span>
       )}
+      <div className="buyProducts py-4">
+        {cart.length === 0 ? (
+          <button
+            onClick={() => navigate("/home")}
+            className="bg-orange-400 w-[200px] h-9 leading-none px-4 py-2 rounded-2xl cursor-pointer"
+          >
+            Continue Shopping
+          </button>
+        ) : (
+          <button
+            onClick={handleOrderPlaced}
+            className="bg-orange-400 w-[200px] h-9 leading-none px-4 py-2 rounded-2xl cursor-pointer"
+          >
+            Buy Now
+          </button>
+        )}
+      </div>
+      {orderPlacedIsOpen && <OrderPlaced />}
+    </div>
+  );
+}
+
+function OrderPlaced() {
+  return (
+    <div className="flex justify-center fixed left-0 top-0 z-10 bg-[#00000050] h-screen w-screen">
+      <div className="bg-white w-[450px] h-[150px] rounded-xl mt-8 flex justify-center items-center gap-3 ">
+        <span className="text-2xl font-bold text-[#03a00e]">
+          Order placed successfully
+        </span>
+        <img src={greenTick} alt="green tick" className="w-10 h-10" />
+      </div>
     </div>
   );
 }

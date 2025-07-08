@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import BharatFlg from "./../assets/India-flag.svg";
 import DropDown from "./../assets/DropDown.svg";
 import LocationIcon from "./../assets/location.svg";
@@ -32,7 +31,7 @@ export default function Header({setIsSidebarOpen, isSidebarOpen}) {
   return (
     <div className="flex flex-col w-full fixed top-0 z-10 text-white overflow-hidden">
       <div className="topHeader flex items-center bg-[#131921] md:px-3 py-1 md:gap-1">
-        <div className="logoSection flex px-1 md:px-2 py-1 border-1 rounded-xs border-transparent hover:border-white">
+        <div className="logoSection flex px-1 md:px-2 py-1">
           <img
             className="max-w-10 rounded-xs hover:cursor-pointer"
             src="https://marketplace.canva.com/EAGQ1aYlOWs/1/0/1600w/canva-blue-colorful-illustrative-e-commerce-online-shop-logo-bHiX_0QpJxE.jpg"
@@ -103,18 +102,18 @@ export default function Header({setIsSidebarOpen, isSidebarOpen}) {
           Heading={"& Orders"}
           hideInMobile={true}
         />
-        <div className="cart relative flex items-end px-1 md:px-2 py-1 border-1 rounded-xs border-transparent hover:border-white cursor-pointer" onClick={() => navigate("/cart")}>
+        <div className="cart relative flex items-end px-1 md:px-2 py-1 cursor-pointer" onClick={() => navigate("/cart")}>
           <img className="w-10" src={Cart} alt="cartImage" />
           <span className="font-bold text-[#F08804] absolute top-2 right-[51px] leading-none" >{totalItems}</span>
           <span className="font-bold">Cart</span>
         </div>
       </div>
       <div className="bottomHeader max-md:hidden bg-[#232F3E] flex items-center px-2 gap-2">
-        <div onClick={() => setIsSidebarOpen(true)} className="all flex gap-1 cursor-pointer px-2 py-2 border-1 rounded-xs border-transparent hover:border-white">
+        <div onClick={() => setIsSidebarOpen(true)} className="all flex gap-1 cursor-pointer px-2 py-2 ">
           <img className="w-5" src={Hamburger} alt="hamburgerIcon" />
           <span className="text-sm font-bold">All</span>
         </div>
-        {categories.map((category) => <span className="text-sm font-semibold whitespace-nowrap px-2 py-2 border-1 rounded-xs border-transparent hover:border-white">{category}</span>)}
+        {categories.map((category) => <span className="text-sm font-semibold whitespace-nowrap px-2 py-2 ">{category}</span>)}
       </div>
     </div>
   );

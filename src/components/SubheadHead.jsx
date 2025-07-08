@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SubheadHead({showImage=false, LocationIcon, imageWidth, Subheading="", Heading, showDropDown=false, DropDown, customClass, subHeadColor, hideInMobile}) {
   return (
-    <div className={`flex items-end w-fit h-full px-2 py-1 border-1 rounded-xs border-transparent hover:border-white hover:cursor-pointer  ${hideInMobile && `max-md:hidden`} ${customClass}`}
+    <div className={`flex items-end w-fit h-full px-2 py-1 hover:cursor-pointer  ${hideInMobile && `max-md:hidden`} ${customClass}`}
     >
       {showImage && <img className={imageWidth} src={LocationIcon} alt="image" />}
       <div className="flex flex-col">
